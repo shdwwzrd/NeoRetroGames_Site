@@ -20,6 +20,8 @@
 
 - **One entry per platform port (2026-11-04):** a game released on several platforms gets a separate `games.json` entry per platform (same title, id like `rayne-the-rogue-2-gba`, one platform each) since ports differ in price, demo, download and art. Rayne the Rogue 2 is split into GBA, GBC, GB, Game Gear.
 
+- **Emulator setup (2026-11-04):** EmulatorJS v4.2.3 self-hosted in `play/emulatorjs/data/` with only the cores we need (not the 300 MB full package); single-threaded builds, so no COOP/COEP headers are needed. One shared `play/player.html?id=<id>`; a game opts in with a `demo` object in `games.json`. Demo ROMs live in `play/<id>/`. See `play/emulatorjs/README.md` for licensing caveats.
+
 ## Open
 - Payment/delivery platform: itch.io (easiest) vs Stripe Payment Link / Gumroad / Lemon Squeezy.
 - GitHub repo name/remote (proposed `NeoRetroGames_Site`) and whether `gh` gets installed.

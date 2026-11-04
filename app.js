@@ -32,7 +32,7 @@
     });
     if (g.genre) tags.appendChild(el("span", { class: "tag", text: g.genre }));
     if (g.status === "development") tags.appendChild(el("span", { class: "tag dev", text: "In development" }));
-    else if (g.demoUrl) tags.appendChild(el("span", { class: "tag play", text: "Demo" }));
+    else if (g.demoUrl || g.demo) tags.appendChild(el("span", { class: "tag play", text: "Demo" }));
 
     var body = el("div", { class: "card-body" }, [
       title,

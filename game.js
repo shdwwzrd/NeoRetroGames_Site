@@ -38,7 +38,7 @@
     (g.platforms || []).forEach(function (p) { tags.appendChild(el("span", { class: "tag", text: p })); });
 
     var actions = el("div", { class: "actions" }, [
-      button("Play demo", g.demoUrl, "btn-play"),
+      button("Play demo", g.demoUrl || (g.demo ? "play/player.html?id=" + encodeURIComponent(g.id) : ""), "btn-play"),
       button("Download demo", g.downloadUrl, "btn-dl", true),
       button("Buy" + (g.price ? " - " + g.price : ""), g.buyUrl, "btn-buy")
     ]);
