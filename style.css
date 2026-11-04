@@ -72,3 +72,10 @@ main { max-width: 1000px; margin: 0 auto; padding: 16px; }
 .tag.dev { border-color: var(--accent); color: var(--accent); }
 img.cover { object-fit: contain; background: #000; }
 .game-detail img.cover { aspect-ratio: auto; }
+.filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 1000px; margin: 0 auto; padding: 14px 16px 0; }
+.filters button {
+  font: inherit; cursor: pointer; padding: 6px 14px; background: var(--panel); color: var(--muted);
+  border: 2px solid var(--line); text-transform: uppercase; letter-spacing: 1px;
+}
+.filters button:hover { border-color: var(--accent2); color: var(--text); }
+.filters button[aria-pressed="true"] { background: var(--accent2); border-color: var(--accent2); color: var(--bg); font-weight: bold; }

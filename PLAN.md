@@ -17,6 +17,7 @@ Self-hosted GitHub Pages site at https://neoretro.games with (1) a list of all N
 - [x] Render game cards from `games.json`
 - [x] Index split into "Available" / "In Development" sections, grouped by platform; card shows platform tags
 - [ ] Tiles (GBC, in development): add blurb/cover; price and links when released
+- [x] Initial cards added (all "In Development", no covers/blurbs yet): Rayne the Rogue 2 (GBA, GBC, GB, Game Gear), Omega Horizon (GBA), Leanna the Lion (GB)
 - [x] Old itch.io games removed from `games.json`; they'll be re-added later as new ports (with platforms)
 - [ ] Add cover images, blurbs, platforms for the 8 itch.io games; Discord URL
 - [ ] Push and verify the 404 is gone on the github.io URL

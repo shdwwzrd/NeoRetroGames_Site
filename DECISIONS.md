@@ -16,6 +16,8 @@
 
 - **Itch.io games dropped (2026-11-04):** the 8 legacy itch.io listings were removed from `games.json`; they'll return later as new ports. The only entry for now is Tiles (GBC, in development), so the Available section stays hidden until a game ships.
 
+- **Platform filter (2026-11-04):** a button bar under the header ("All" default plus one button per platform found in `games.json`) narrows the index to one platform. Client-side only; resets on reload.
+
 ## Open
 - Payment/delivery platform: itch.io (easiest) vs Stripe Payment Link / Gumroad / Lemon Squeezy.
 - GitHub repo name/remote (proposed `NeoRetroGames_Site`) and whether `gh` gets installed.

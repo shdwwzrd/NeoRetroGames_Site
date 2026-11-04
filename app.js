@@ -58,19 +58,48 @@
       d.hidden = false;
     }
 
-    var root = document.getElementById("grid");
     var games = data.games || [];
+    var platforms = [];
+    games.forEach(function (g) {
+      ((g.platforms && g.platforms.length) ? g.platforms : ["Other"]).forEach(function (p) {
+        if (platforms.indexOf(p) < 0) platforms.push(p);
+      });
+    });
+
+    var current = "All";
+    var bar = document.getElementById("filters");
+    function paint() {
+      renderGames(games, current);
+      Array.prototype.forEach.call(bar.children, function (b) {
+        b.setAttribute("aria-pressed", String(b.getAttribute("data-platform") === current));
+      });
+    }
+    ["All"].concat(platforms).forEach(function (p) {
+      var b = el("button", { type: "button", "data-platform": p, text: p });
+      b.addEventListener("click", function () { current = p; paint(); });
+      bar.appendChild(b);
+    });
+    bar.hidden = platforms.length === 0;
+    paint();
+  }
+
+  function renderGames(games, filter) {
+    var root = document.getElementById("grid");
+    root.textContent = "";
     [
       { status: "available", heading: "Available" },
       { status: "development", heading: "In Development" }
     ].forEach(function (sec) {
       var list = games.filter(function (g) { return (g.status || "available") === sec.status; });
-      if (list.length) root.appendChild(renderSection(sec.heading, list));
+      var node = list.length ? renderSection(sec.heading, list, filter) : null;
+      if (node) root.appendChild(node);
     });
+    if (!root.children.length) root.textContent = "No games for this platform yet.";
   }
 
   // One section: heading, then a sub-group per platform (a multi-platform game appears under each).
-  function renderSection(heading, list) {
+  // Returns null when the platform filter leaves nothing in this section.
+  function renderSection(heading, list, filter) {
     var groups = {}, order = [];
     list.forEach(function (g) {
       var plats = (g.platforms && g.platforms.length) ? g.platforms : ["Other"];
@@ -79,6 +108,8 @@
         groups[p].push(g);
       });
     });
+    if (filter && filter !== "All") order = order.filter(function (p) { return p === filter; });
+    if (!order.length) return null;
     var section = el("section", { class: "games-section" }, [el("h2", { text: heading })]);
     order.forEach(function (p) {
       var grid = el("div", { class: "grid" });
