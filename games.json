@@ -5,12 +5,6 @@
     "twitter": "https://twitter.com/neoretrogames",
     "discord": ""
   },
-  "featured": {
-    "title": "Games for Thumby",
-    "blurb": "Bundle of Neo Retro games for the Thumby.",
-    "price": "$2",
-    "buyUrl": "https://neoretrogames.itch.io/neo-retro-thumby-games"
-  },
   "games": [
     { "id": "tiles", "title": "2026 Tiles", "genre": "Puzzle", "blurb": "", "platforms": ["GBC"], "cover": "", "price": "", "buyUrl": "", "downloadUrl": "", "demoUrl": "" },
     { "id": "rayne-the-rogue-2", "title": "Rayne the Rogue 2", "genre": "Action", "blurb": "", "platforms": [], "cover": "", "price": "", "buyUrl": "https://neoretrogames.itch.io/rayne-the-rogue-2", "downloadUrl": "", "demoUrl": "" },

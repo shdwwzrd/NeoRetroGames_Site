@@ -55,19 +55,6 @@
       d.hidden = false;
     }
 
-    var f = data.featured;
-    if (f && f.title) {
-      var fe = document.getElementById("featured");
-      fe.appendChild(el("div", {}, [
-        el("h2", { text: f.title }),
-        f.blurb ? el("p", { text: f.blurb }) : null
-      ]));
-      if (f.buyUrl && isSafeUrl(f.buyUrl)) {
-        fe.appendChild(el("a", { href: f.buyUrl, text: "Get it" + (f.price ? " - " + f.price : "") }));
-      }
-      fe.hidden = false;
-    }
-
     var grid = document.getElementById("grid");
     (data.games || []).forEach(function (g) { grid.appendChild(renderCard(g)); });
   }
