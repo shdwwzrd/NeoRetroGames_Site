@@ -8,7 +8,7 @@ Self-hosted GitHub Pages site at https://neoretro.games with (1) a list of all N
 ## Phase 0: Repo setup
 - [x] Create local repo `NeoRetroGames_Site` as sibling of game folders, branch `main`
 - [x] Add `CNAME` (neoretro.games), `.nojekyll`, `README.md`
-- [ ] Create GitHub remote (web UI, or install `gh` via `winget install GitHub.cli` + `gh auth login`) and push
+- [x] Create GitHub remote and push (https://github.com/shdwwzrd/NeoRetroGames_Site, done by owner)
 - [ ] Enable Pages: Settings > Pages > Deploy from branch `main` / root
 
 ## Phase 1: Storefront skeleton
@@ -23,7 +23,7 @@ Self-hosted GitHub Pages site at https://neoretro.games with (1) a list of all N
 - [ ] Build a distinct demo ROM (limited content) for 2026 Tiles; place in `play/tiles/`
 - [ ] "Play demo" button on card opens player (iframe/modal)
 
-## Phase 3: Domain
+## Phase 3: Domain (deferred: running on default github.io URL until the domain is ready; CNAME file removed, re-add it then)
 - [ ] DNS at registrar: 4 A records (185.199.108-111.153), optional AAAA, `www` CNAME to `<user>.github.io`
 - [ ] Set custom domain in Pages settings, wait for DNS, tick Enforce HTTPS
 
