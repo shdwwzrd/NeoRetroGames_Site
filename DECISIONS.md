@@ -10,6 +10,8 @@
 
 - **Interim URL (2026-11-04):** neoretro.games isn't ready to be repointed, so the site runs on the default `https://shdwwzrd.github.io/NeoRetroGames_Site/` for now. `CNAME` removed from the repo; re-add it (plus DNS, Phase 3) when ready. Because it's a project site served from a subpath, use **relative paths** for all assets and links.
 
+- **Per-game pages (2026-11-04):** each card links to `game.html?id=<id>` (one template, rendered from `games.json`, no build step). The page offers Play demo, Download demo, and Buy buttons; each only shows if its URL is set. Buy goes to an external processor that delivers the file to the buyer by email (platform still open below).
+
 ## Open
 - Payment/delivery platform: itch.io (easiest) vs Stripe Payment Link / Gumroad / Lemon Squeezy.
 - GitHub repo name/remote (proposed `NeoRetroGames_Site`) and whether `gh` gets installed.

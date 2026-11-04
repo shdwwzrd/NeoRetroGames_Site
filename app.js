@@ -18,21 +18,18 @@
   }
 
   function renderCard(g) {
-    var link = g.buyUrl || g.downloadUrl || "";
+    var link = "game.html?id=" + encodeURIComponent(g.id);
     var cover = g.cover
       ? el("img", { class: "cover", src: g.cover, alt: g.title + " cover", loading: "lazy" })
       : el("div", { class: "cover", role: "img", "aria-label": g.title + " (cover coming soon)" });
+    cover = el("a", { href: link, "aria-label": g.title }, [cover]);
 
-    var title = el("h3");
-    if (link && isSafeUrl(link)) title.appendChild(el("a", { href: link, text: g.title }));
-    else title.textContent = g.title;
+    var title = el("h3", {}, [el("a", { href: link, text: g.title })]);
 
     var tags = el("div", { class: "tags" });
     if (g.genre) tags.appendChild(el("span", { class: "tag", text: g.genre }));
     (g.platforms || []).forEach(function (p) { tags.appendChild(el("span", { class: "tag", text: p })); });
-    if (g.demoUrl && isSafeUrl(g.demoUrl)) {
-      tags.appendChild(el("a", { class: "tag play", href: g.demoUrl, text: "Play demo" }));
-    }
+    if (g.demoUrl) tags.appendChild(el("span", { class: "tag play", text: "Demo" }));
 
     var body = el("div", { class: "card-body" }, [
       title,
@@ -47,12 +44,10 @@
 
   function render(data) {
     var s = data.studio || {};
-    document.getElementById("studio-name").textContent = s.name || "Neo Retro Games";
     document.getElementById("tagline").textContent = s.tagline || "";
 
-    var nav = document.getElementById("studio-links");
-    if (s.itch) nav.appendChild(el("a", { href: s.itch, text: "itch.io" }));
-    if (s.twitter) nav.appendChild(el("a", { href: s.twitter, text: "@neoretrogames" }));
+    var nav = document.getElementById("footer-links");
+    if (s.twitter && isSafeUrl(s.twitter)) nav.appendChild(el("a", { href: s.twitter, text: "@neoretrogames" }));
 
     if (s.discord) {
       var d = document.getElementById("discord");
