@@ -4,6 +4,11 @@
 - Windows 11, VS Code, PowerShell. GitHub user: `shdwwzrd`. `gh` CLI is NOT installed (as of 2026-11-04).
 - Sibling folders in `..\`: 2020_OmegaHorizon, 2022_OmegaHorizon2, 2023_CR8ZY, 202601_Yatzy_Pico8, 202603_OmegaHorizon1_Pico8, 202604_RayneTheRogue_Pico8, 202605_PirateDice_Pico8, 2026_Rayne_2_Ports, 2026_Spades, 2026_Tiles, Piskel-0.14.0 (sprite tool).
 
+## itch.io reference (neoretrogames.itch.io, fetched 2026-11-04)
+- Layout: studio header + Follow, platform tagline, Discord banner, featured "Games for Thumby" bundle ($2), grid of 8 cards (cover, title, genre).
+- Games: Rayne the Rogue 2, Rayne the Rogue, Yatzy (play in browser), Omega Horizon, Leanna the Lion, Siege, Cutie Critters, Kooky Kookies.
+- Colors/fonts/prices/platforms per game weren't retrievable; the site's theme is our own dark retro style.
+
 ## GitHub Pages facts
 - Static only. Limits: 1 GB site, 100 MB per file. GBC ROMs are tiny, so not a concern.
 - Custom domain DNS: A records 185.199.108.153, .109.153, .110.153, .111.153; AAAA 2606:50c0:8000-8003::153; `www` CNAME to `<user>.github.io`. Re-check GitHub docs, IPs can change.

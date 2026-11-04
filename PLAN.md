@@ -12,10 +12,12 @@ Self-hosted GitHub Pages site at https://neoretro.games with (1) a list of all N
 - [ ] Enable Pages: Settings > Pages > Deploy from branch `main` / root
 
 ## Phase 1: Storefront skeleton
-- [ ] `index.html`, `style.css`, `app.js` (retro look, responsive)
-- [ ] `games.json` schema: id, title, blurb, platforms, cover, price, buyUrl, downloadUrl, demoUrl
-- [ ] Render game cards from `games.json`
-- [ ] First entry: 2026 Tiles (confirm title/blurb/price)
+- [x] `index.html`, `style.css`, `app.js` (retro look, responsive), layout modeled on https://neoretrogames.itch.io/ (no itch header)
+- [x] `games.json` schema: id, title, genre, blurb, platforms, cover, price, buyUrl, downloadUrl, demoUrl (+ studio and featured blocks)
+- [x] Render game cards from `games.json`
+- [ ] First entry: 2026 Tiles (confirm title/blurb/price; currently a placeholder with no links)
+- [ ] Add cover images, blurbs, platforms for the 8 itch.io games; Discord URL
+- [ ] Push and verify the 404 is gone on the github.io URL
 
 ## Phase 2: Browser demo
 - [ ] Self-host EmulatorJS under `play/emulatorjs/` (no CDN dependency)
