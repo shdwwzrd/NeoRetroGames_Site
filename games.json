@@ -6,14 +6,6 @@
     "discord": ""
   },
   "games": [
-    { "id": "tiles", "title": "2026 Tiles", "genre": "Puzzle", "blurb": "", "platforms": ["GBC"], "cover": "", "price": "", "buyUrl": "", "downloadUrl": "", "demoUrl": "" },
-    { "id": "rayne-the-rogue-2", "title": "Rayne the Rogue 2", "genre": "Action", "blurb": "", "platforms": [], "cover": "", "price": "", "buyUrl": "https://neoretrogames.itch.io/rayne-the-rogue-2", "downloadUrl": "", "demoUrl": "" },
-    { "id": "rayne-the-rogue", "title": "Rayne the Rogue", "genre": "Action", "blurb": "", "platforms": [], "cover": "", "price": "", "buyUrl": "https://neoretrogames.itch.io/rayne-the-rogue", "downloadUrl": "", "demoUrl": "" },
-    { "id": "yatzy", "title": "Yatzy", "genre": "Strategy", "blurb": "", "platforms": ["Browser"], "cover": "", "price": "", "buyUrl": "https://neoretrogames.itch.io/yatzy", "downloadUrl": "", "demoUrl": "" },
-    { "id": "omega-horizon", "title": "Omega Horizon", "genre": "Platformer", "blurb": "", "platforms": [], "cover": "", "price": "", "buyUrl": "https://neoretrogames.itch.io/omega-horizon", "downloadUrl": "", "demoUrl": "" },
-    { "id": "leanna-the-lion", "title": "Leanna the Lion", "genre": "Action", "blurb": "", "platforms": [], "cover": "", "price": "", "buyUrl": "https://neoretrogames.itch.io/leanna-the-lion", "downloadUrl": "", "demoUrl": "" },
-    { "id": "siege", "title": "Siege", "genre": "Action", "blurb": "", "platforms": [], "cover": "", "price": "", "buyUrl": "https://neoretrogames.itch.io/siege", "downloadUrl": "", "demoUrl": "" },
-    { "id": "cutie-critters", "title": "Cutie Critters", "genre": "Puzzle", "blurb": "", "platforms": [], "cover": "", "price": "", "buyUrl": "https://neoretrogames.itch.io/cutie-critters", "downloadUrl": "", "demoUrl": "" },
-    { "id": "kooky-kookies", "title": "Kooky Kookies", "genre": "Puzzle", "blurb": "", "platforms": [], "cover": "", "price": "", "buyUrl": "https://neoretrogames.itch.io/kooky-kookies", "downloadUrl": "", "demoUrl": "" }
+    { "id": "tiles", "title": "Tiles", "status": "development", "genre": "Puzzle", "blurb": "", "platforms": ["GBC"], "cover": "img/Tiles_Logo.png", "price": "", "buyUrl": "", "downloadUrl": "", "demoUrl": "" }
   ]
 }

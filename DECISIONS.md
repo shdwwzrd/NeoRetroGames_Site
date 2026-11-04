@@ -12,6 +12,10 @@
 
 - **Per-game pages (2026-11-04):** each card links to `game.html?id=<id>` (one template, rendered from `games.json`, no build step). The page offers Play demo, Download demo, and Buy buttons; each only shows if its URL is set. Buy goes to an external processor that delivers the file to the buyer by email (platform still open below).
 
+- **Index sections (2026-11-04):** games have a `status` ("available" default, or "development"). Index shows Available then In Development, each grouped under platform headings; a multi-platform game appears under each of its platforms. Games with no `platforms` group under "Other". The game is titled "Tiles" (folder is still `2026_Tiles`); first release is GBC. Featured-bundle block was dropped; may return later as its own block.
+
+- **Itch.io games dropped (2026-11-04):** the 8 legacy itch.io listings were removed from `games.json`; they'll return later as new ports. The only entry for now is Tiles (GBC, in development), so the Available section stays hidden until a game ships.
+
 ## Open
 - Payment/delivery platform: itch.io (easiest) vs Stripe Payment Link / Gumroad / Lemon Squeezy.
 - GitHub repo name/remote (proposed `NeoRetroGames_Site`) and whether `gh` gets installed.

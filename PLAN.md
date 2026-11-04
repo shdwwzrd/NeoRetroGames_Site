@@ -15,14 +15,16 @@ Self-hosted GitHub Pages site at https://neoretro.games with (1) a list of all N
 - [x] `index.html`, `style.css`, `app.js` (retro look, responsive), layout modeled on https://neoretrogames.itch.io/ (no itch header)
 - [x] `games.json` schema: id, title, genre, blurb, platforms, cover, price, buyUrl, downloadUrl, demoUrl (+ studio and featured blocks)
 - [x] Render game cards from `games.json`
-- [ ] First entry: 2026 Tiles (confirm title/blurb/price; currently a placeholder with no links)
+- [x] Index split into "Available" / "In Development" sections, grouped by platform; card shows platform tags
+- [ ] Tiles (GBC, in development): add blurb/cover; price and links when released
+- [x] Old itch.io games removed from `games.json`; they'll be re-added later as new ports (with platforms)
 - [ ] Add cover images, blurbs, platforms for the 8 itch.io games; Discord URL
 - [ ] Push and verify the 404 is gone on the github.io URL
 
 ## Phase 2: Browser demo
 - [ ] Self-host EmulatorJS under `play/emulatorjs/` (no CDN dependency)
 - [ ] `play/<game-id>/index.html` loads emulator + demo ROM
-- [ ] Build a distinct demo ROM (limited content) for 2026 Tiles; place in `play/tiles/`
+- [ ] Build a distinct demo ROM (limited content) for Tiles; place in `play/tiles/`
 - [ ] "Play demo" button on card opens player (iframe/modal)
 
 ## Phase 3: Domain (deferred: running on default github.io URL until the domain is ready; CNAME file removed, re-add it then)

@@ -17,7 +17,7 @@
     return /^(https?:\/\/|[A-Za-z0-9_.\/-]+$)/.test(u);
   }
 
-  function renderCard(g) {
+  function renderCard(g, platform) {
     var link = "game.html?id=" + encodeURIComponent(g.id);
     var cover = g.cover
       ? el("img", { class: "cover", src: g.cover, alt: g.title + " cover", loading: "lazy" })
@@ -27,9 +27,12 @@
     var title = el("h3", {}, [el("a", { href: link, text: g.title })]);
 
     var tags = el("div", { class: "tags" });
+    (g.platforms || []).forEach(function (p) {
+      tags.appendChild(el("span", { class: "tag platform" + (p === platform ? " current" : ""), text: p }));
+    });
     if (g.genre) tags.appendChild(el("span", { class: "tag", text: g.genre }));
-    (g.platforms || []).forEach(function (p) { tags.appendChild(el("span", { class: "tag", text: p })); });
-    if (g.demoUrl) tags.appendChild(el("span", { class: "tag play", text: "Demo" }));
+    if (g.status === "development") tags.appendChild(el("span", { class: "tag dev", text: "In development" }));
+    else if (g.demoUrl) tags.appendChild(el("span", { class: "tag play", text: "Demo" }));
 
     var body = el("div", { class: "card-body" }, [
       title,
@@ -55,8 +58,35 @@
       d.hidden = false;
     }
 
-    var grid = document.getElementById("grid");
-    (data.games || []).forEach(function (g) { grid.appendChild(renderCard(g)); });
+    var root = document.getElementById("grid");
+    var games = data.games || [];
+    [
+      { status: "available", heading: "Available" },
+      { status: "development", heading: "In Development" }
+    ].forEach(function (sec) {
+      var list = games.filter(function (g) { return (g.status || "available") === sec.status; });
+      if (list.length) root.appendChild(renderSection(sec.heading, list));
+    });
+  }
+
+  // One section: heading, then a sub-group per platform (a multi-platform game appears under each).
+  function renderSection(heading, list) {
+    var groups = {}, order = [];
+    list.forEach(function (g) {
+      var plats = (g.platforms && g.platforms.length) ? g.platforms : ["Other"];
+      plats.forEach(function (p) {
+        if (!groups[p]) { groups[p] = []; order.push(p); }
+        groups[p].push(g);
+      });
+    });
+    var section = el("section", { class: "games-section" }, [el("h2", { text: heading })]);
+    order.forEach(function (p) {
+      var grid = el("div", { class: "grid" });
+      groups[p].forEach(function (g) { grid.appendChild(renderCard(g, p)); });
+      section.appendChild(el("h3", { class: "platform-heading", text: p }));
+      section.appendChild(grid);
+    });
+    return section;
   }
 
   fetch("games.json")

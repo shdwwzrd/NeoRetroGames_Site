@@ -23,7 +23,8 @@
 ```json
 {
   "id": "tiles",
-  "title": "2026 Tiles",
+  "title": "Tiles",
+  "status": "development",  // "available" (default) or "development"
   "blurb": "",
   "platforms": ["GBC"],
   "cover": "img/tiles.png",

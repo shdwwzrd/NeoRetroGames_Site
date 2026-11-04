@@ -65,3 +65,10 @@ main { max-width: 1000px; margin: 0 auto; padding: 16px; }
 #footer-links { margin-bottom: 6px; }
 #footer-links:empty { display: none; }
 [hidden] { display: none !important; }
+.games-section { margin-bottom: 32px; }
+.games-section > h2 { color: var(--accent); text-transform: uppercase; letter-spacing: 2px; border-bottom: 2px solid var(--line); padding-bottom: 6px; }
+.platform-heading { color: var(--accent2); margin: 20px 0 10px; font-size: 1rem; }
+.tag.platform.current { border-color: var(--accent2); color: var(--accent2); }
+.tag.dev { border-color: var(--accent); color: var(--accent); }
+img.cover { object-fit: contain; background: #000; }
+.game-detail img.cover { aspect-ratio: auto; }
