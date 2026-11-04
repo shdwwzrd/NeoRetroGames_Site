@@ -25,7 +25,8 @@
   }
 
   function render(g) {
-    document.title = g.title + " - Neo Retro Games";
+    var plats = (g.platforms || []).join(", ");
+    document.title = g.title + (plats ? " (" + plats + ")" : "") + " - Neo Retro Games";
     var root = document.getElementById("game");
 
     var cover = g.cover

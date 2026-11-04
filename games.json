@@ -7,7 +7,10 @@
   },
   "games": [
     { "id": "tiles", "title": "Tiles", "status": "development", "genre": "Puzzle", "blurb": "", "platforms": ["GBC"], "cover": "img/Tiles_Logo.png", "price": "", "buyUrl": "", "downloadUrl": "", "demoUrl": "" },
-    { "id": "rayne-the-rogue-2", "title": "Rayne the Rogue 2", "status": "development", "genre": "Action", "blurb": "", "platforms": ["GBA", "GBC", "GB", "Game Gear"], "cover": "", "price": "", "buyUrl": "", "downloadUrl": "", "demoUrl": "" },
+    { "id": "rayne-the-rogue-2-gba", "title": "Rayne the Rogue 2", "status": "development", "genre": "Action", "blurb": "", "platforms": ["GBA"], "cover": "", "price": "", "buyUrl": "", "downloadUrl": "", "demoUrl": "" },
+    { "id": "rayne-the-rogue-2-gbc", "title": "Rayne the Rogue 2", "status": "development", "genre": "Action", "blurb": "", "platforms": ["GBC"], "cover": "", "price": "", "buyUrl": "", "downloadUrl": "", "demoUrl": "" },
+    { "id": "rayne-the-rogue-2-gb", "title": "Rayne the Rogue 2", "status": "development", "genre": "Action", "blurb": "", "platforms": ["GB"], "cover": "", "price": "", "buyUrl": "", "downloadUrl": "", "demoUrl": "" },
+    { "id": "rayne-the-rogue-2-gg", "title": "Rayne the Rogue 2", "status": "development", "genre": "Action", "blurb": "", "platforms": ["Game Gear"], "cover": "", "price": "", "buyUrl": "", "downloadUrl": "", "demoUrl": "" },
     { "id": "omega-horizon", "title": "Omega Horizon", "status": "development", "genre": "Platformer", "blurb": "", "platforms": ["GBA"], "cover": "", "price": "", "buyUrl": "", "downloadUrl": "", "demoUrl": "" },
     { "id": "leanna-the-lion", "title": "Leanna the Lion", "status": "development", "genre": "Action", "blurb": "", "platforms": ["GB"], "cover": "", "price": "", "buyUrl": "", "downloadUrl": "", "demoUrl": "" }
   ]

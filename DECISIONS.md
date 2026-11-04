@@ -18,6 +18,8 @@
 
 - **Platform filter (2026-11-04):** a button bar under the header ("All" default plus one button per platform found in `games.json`) narrows the index to one platform. Client-side only; resets on reload.
 
+- **One entry per platform port (2026-11-04):** a game released on several platforms gets a separate `games.json` entry per platform (same title, id like `rayne-the-rogue-2-gba`, one platform each) since ports differ in price, demo, download and art. Rayne the Rogue 2 is split into GBA, GBC, GB, Game Gear.
+
 ## Open
 - Payment/delivery platform: itch.io (easiest) vs Stripe Payment Link / Gumroad / Lemon Squeezy.
 - GitHub repo name/remote (proposed `NeoRetroGames_Site`) and whether `gh` gets installed.
