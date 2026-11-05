@@ -50,7 +50,15 @@
     root.appendChild(el("div", { class: "detail-body" }, [
       el("h2", { text: g.title }),
       tags,
-      g.blurb ? el("p", { text: g.blurb }) : null,
+      g.blurb ? el("p", { class: "lead", text: g.blurb }) : null,
+      el("div", { class: "description" }, (g.description || []).map(function (t) { return el("p", { text: t }); })),
+      (g.screenshots && g.screenshots.length)
+        ? el("div", { class: "shots" }, g.screenshots.filter(isSafeUrl).map(function (src, i) {
+            return el("a", { href: src, target: "_blank", rel: "noopener" }, [
+              el("img", { src: src, alt: g.title + " screenshot " + (i + 1), loading: "lazy" })
+            ]);
+          }))
+        : null,
       actions
     ]));
   }
