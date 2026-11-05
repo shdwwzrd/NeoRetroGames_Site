@@ -37,4 +37,5 @@
 
 ## Copy workflow
 - Write each game's `blurb` (card + top of page) and `description` (game page, paragraphs separated by a blank line) in `COPY.md`, then run `tools\apply-copy.bat`. It writes them into `games.json` (keeps the one-line-per-game layout, validates JSON before saving) and adds a stub section to COPY.md for any game in `games.json` that has none. Empty sections are skipped, so existing text is never blanked.
+- Description formatting: blank line = new paragraph, `## Heading`, `- ` bullet lists, `**bold**`. Stored in `games.json` as an array of blocks (paragraph string, `"## Heading"`, or `"- a\n- b"` list); `game.js` renders them with DOM nodes (no innerHTML).
 - Screenshots: put images in `img/shots/<game-id>/` (names: letters, digits, `_ . -` only; sorted numerically, so `1_title.png`, `2_story.png`, ...). `tools\apply-copy.bat` lists them in each game's `screenshots` array; the game page shows them as a gallery (click to open full size).

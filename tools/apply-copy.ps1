@@ -8,19 +8,29 @@ $copyPath = Join-Path $Root 'COPY.md'
 $jsonPath = Join-Path $Root 'games.json'
 
 function Json-Str([string]$s) {
-  $s = $s.Replace('\', '\\').Replace('"', '\"')
+  $s = $s.Replace('\', '\\').Replace('"', '\"').Replace("`r", '').Replace("`n", '\n')
   return '"' + $s + '"'
 }
 
+# ids that exist in games.json (so "## word" inside a description isn't mistaken for a game section)
+$knownIds = @{}
+foreach ($m in [regex]::Matches([IO.File]::ReadAllText($jsonPath, $utf8), '"id":\s*"([^"]+)"')) { $knownIds[$m.Groups[1].Value] = $true }
+
 # ---- parse COPY.md ----
+# description blocks (one array entry each): plain paragraph | "## Heading" | bullet list ("- a" lines joined by newlines)
 $raw = [IO.File]::ReadAllText($copyPath, $utf8)
 $raw = [regex]::Replace($raw, '<!--.*?-->', '', 'Singleline')
 $copy = [ordered]@{}   # id -> @{ blurb = string; description = string[] }
-$id = $null; $field = $null; $para = New-Object System.Collections.ArrayList
+$id = $null; $field = $null; $kind = $null
+$para = New-Object System.Collections.ArrayList
 $paras = New-Object System.Collections.ArrayList
 
 function Flush-Para {
-  if ($script:para.Count -gt 0) { [void]$script:paras.Add(($script:para -join ' ')); $script:para.Clear() }
+  if ($script:para.Count -gt 0) {
+    $sep = if ($script:kind -eq 'ul') { "`n" } else { ' ' }
+    [void]$script:paras.Add(($script:para -join $sep)); $script:para.Clear()
+  }
+  $script:kind = $null
 }
 function Flush-Field {
   Flush-Para
@@ -34,7 +44,8 @@ function Flush-Field {
 
 $started = $false
 foreach ($line in ($raw -split "`r?`n")) {
-  if ($line -match '^##\s+(\S+)\s*$') {
+  $isGame = $line -match '^##\s+(\S+)\s*$' -and ($knownIds.ContainsKey($Matches[1]) -or $field -ne 'description')
+  if ($isGame) {
     Flush-Field; $started = $true
     $id = $Matches[1]; $field = $null
     $copy[$id] = @{ blurb = ''; description = @() }
@@ -43,8 +54,18 @@ foreach ($line in ($raw -split "`r?`n")) {
     Flush-Field; $field = $Matches[1]
   }
   elseif ($started -and $field) {
-    $t = $line.Trim()
-    if ($t -eq '') { Flush-Para } elseif ($t -ne '---') { [void]$para.Add($t) }
+    $t = ($line -replace '^\s*>\s?', '').Trim()     # tolerate "> " quote prefixes
+    if ($t -eq '') { Flush-Para }
+    elseif ($t -eq '---') { }
+    elseif ($field -eq 'description' -and $t -match '^##\s+(.+)$') { Flush-Para; [void]$paras.Add('## ' + $Matches[1].Trim()) }
+    elseif ($field -eq 'description' -and $t -match '^[-*]\s+(.+)$') {
+      if ($kind -ne 'ul') { Flush-Para; $kind = 'ul' }
+      [void]$para.Add('- ' + $Matches[1].Trim())
+    }
+    else {
+      if ($kind -eq 'ul') { Flush-Para }
+      $kind = 'p'; [void]$para.Add($t)
+    }
   }
 }
 Flush-Field

@@ -24,6 +24,27 @@
     return el("a", props);
   }
 
+  // Inline **bold** -> <strong>, built as DOM nodes (no innerHTML).
+  function inline(parent, text) {
+    text.split(/(\*\*[^*]+\*\*)/).forEach(function (part) {
+      if (!part) return;
+      if (/^\*\*[^*]+\*\*$/.test(part)) parent.appendChild(el("strong", { text: part.slice(2, -2) }));
+      else parent.appendChild(document.createTextNode(part));
+    });
+    return parent;
+  }
+
+  // One description block: "## Heading", a "- item" list (lines joined by \n), or a paragraph.
+  function renderBlock(t) {
+    if (/^## /.test(t)) return inline(el("h3"), t.slice(3));
+    if (/^- /.test(t)) {
+      return el("ul", {}, t.split("\n").map(function (line) {
+        return inline(el("li"), line.replace(/^- /, ""));
+      }));
+    }
+    return inline(el("p"), t);
+  }
+
   function render(g) {
     var plats = (g.platforms || []).join(", ");
     document.title = g.title + (plats ? " (" + plats + ")" : "") + " - Neo Retro Games";
@@ -51,7 +72,7 @@
       el("h2", { text: g.title }),
       tags,
       g.blurb ? el("p", { class: "lead", text: g.blurb }) : null,
-      el("div", { class: "description" }, (g.description || []).map(function (t) { return el("p", { text: t }); })),
+      el("div", { class: "description" }, (g.description || []).map(renderBlock)),
       (g.screenshots && g.screenshots.length)
         ? el("div", { class: "shots" }, g.screenshots.filter(isSafeUrl).map(function (src, i) {
             return el("a", { href: src, target: "_blank", rel: "noopener" }, [

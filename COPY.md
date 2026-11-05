@@ -8,7 +8,13 @@ Rules (so the script can read this file):
 - **blurb**: 1-2 sentences, shown on the card and at the top of the game page. Plain text on one line (or several lines; they're joined).
 - **description**: longer text for the game page. Separate paragraphs with a blank line.
 - Leave a section empty to leave that game's existing text alone. Text you write replaces what's in `games.json`.
-- Plain text only (no markdown formatting). Quotes and accents are fine.
+- Formatting in a **description** (the blurb is plain text):
+  - A blank line starts a new paragraph. Lines with no blank line between them are joined into one paragraph.
+  - `## Heading` on its own line makes a subheading.
+  - Lines starting with `- ` make a bullet list (keep the bullets together, no blank lines between them).
+  - `**bold**` makes bold text.
+  - A leading `> ` on lines is ignored, so text pasted from a quoted block still works.
+- Quotes and accents are fine.
 - `<!-- comments like this -->` are ignored.
 
 ---
