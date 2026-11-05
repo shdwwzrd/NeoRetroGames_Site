@@ -43,7 +43,7 @@ main { max-width: 1000px; margin: 0 auto; padding: 16px; }
 .card h3 a:hover { color: var(--accent); }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; font-size: 0.75rem; }
 .tag { padding: 1px 6px; border: 1px solid var(--line); color: var(--muted); }
-.tag.play { border-color: var(--accent2); color: var(--accent2); }
+.tag.play { background: var(--accent2); border-color: var(--accent2); color: var(--bg); font-weight: bold; }
 .blurb { margin: 0; font-size: 0.85rem; color: var(--muted); }
 .price { margin-top: auto; font-weight: bold; color: var(--accent2); }
 .site-footer { text-align: center; color: var(--muted); padding: 24px 16px; font-size: 0.8rem; }
@@ -67,8 +67,7 @@ main { max-width: 1000px; margin: 0 auto; padding: 16px; }
 [hidden] { display: none !important; }
 .games-section { margin-bottom: 32px; }
 .games-section > h2 { color: var(--accent); text-transform: uppercase; letter-spacing: 2px; border-bottom: 2px solid var(--line); padding-bottom: 6px; }
-.platform-heading { color: var(--accent2); margin: 20px 0 10px; font-size: 1rem; }
-.tag.platform.current { border-color: var(--accent2); color: var(--accent2); }
+.tag.platform { border-color: var(--accent2); color: var(--accent2); }
 .tag.dev { border-color: var(--accent); color: var(--accent); }
 img.cover { object-fit: contain; background: #000; }
 .game-detail img.cover { aspect-ratio: auto; }

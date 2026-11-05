@@ -17,7 +17,7 @@
     return /^(https?:\/\/|[A-Za-z0-9_.\/-]+$)/.test(u);
   }
 
-  function renderCard(g, platform) {
+  function renderCard(g) {
     var link = "game.html?id=" + encodeURIComponent(g.id);
     var cover = g.cover
       ? el("img", { class: "cover", src: g.cover, alt: g.title + " cover", loading: "lazy" })
@@ -28,16 +28,15 @@
 
     var tags = el("div", { class: "tags" });
     (g.platforms || []).forEach(function (p) {
-      tags.appendChild(el("span", { class: "tag platform" + (p === platform ? " current" : ""), text: p }));
+      tags.appendChild(el("span", { class: "tag platform", text: p }));
     });
     if (g.genre) tags.appendChild(el("span", { class: "tag", text: g.genre }));
     if (g.status === "development") tags.appendChild(el("span", { class: "tag dev", text: "In development" }));
-    else if (g.demoUrl || g.demo) tags.appendChild(el("span", { class: "tag play", text: "Demo" }));
+    if (g.demo || g.demoUrl || g.downloadUrl) tags.appendChild(el("span", { class: "tag play", text: "Demo available" }));
 
     var body = el("div", { class: "card-body" }, [
       title,
       tags,
-      g.blurb ? el("p", { class: "blurb", text: g.blurb }) : null,
       g.price ? el("div", { class: "price", text: g.price }) : null
     ]);
 
@@ -69,7 +68,7 @@
     var current = "All";
     var bar = document.getElementById("filters");
     function paint() {
-      renderGames(games, current);
+      renderGames(games, current, platforms);
       Array.prototype.forEach.call(bar.children, function (b) {
         b.setAttribute("aria-pressed", String(b.getAttribute("data-platform") === current));
       });
@@ -83,7 +82,7 @@
     paint();
   }
 
-  function renderGames(games, filter) {
+  function renderGames(games, filter, platforms) {
     var root = document.getElementById("grid");
     root.textContent = "";
     [
@@ -91,33 +90,26 @@
       { status: "development", heading: "In Development" }
     ].forEach(function (sec) {
       var list = games.filter(function (g) { return (g.status || "available") === sec.status; });
-      var node = list.length ? renderSection(sec.heading, list, filter) : null;
+      var node = list.length ? renderSection(sec.heading, list, filter, platforms) : null;
       if (node) root.appendChild(node);
     });
     if (!root.children.length) root.textContent = "No games for this platform yet.";
   }
 
-  // One section: heading, then a sub-group per platform (a multi-platform game appears under each).
-  // Returns null when the platform filter leaves nothing in this section.
-  function renderSection(heading, list, filter) {
-    var groups = {}, order = [];
-    list.forEach(function (g) {
-      var plats = (g.platforms && g.platforms.length) ? g.platforms : ["Other"];
-      plats.forEach(function (p) {
-        if (!groups[p]) { groups[p] = []; order.push(p); }
-        groups[p].push(g);
-      });
-    });
-    if (filter && filter !== "All") order = order.filter(function (p) { return p === filter; });
-    if (!order.length) return null;
-    var section = el("section", { class: "games-section" }, [el("h2", { text: heading })]);
-    order.forEach(function (p) {
-      var grid = el("div", { class: "grid" });
-      groups[p].forEach(function (g) { grid.appendChild(renderCard(g, p)); });
-      section.appendChild(el("h3", { class: "platform-heading", text: p }));
-      section.appendChild(grid);
-    });
-    return section;
+  // One section: heading + a flat grid. The platform filter at the top narrows it.
+  // Cards are ordered by platform (in the order platforms first appear in games.json) so
+  // same-platform games sit together. Returns null when the filter leaves nothing.
+  function renderSection(heading, list, filter, platforms) {
+    function plats(g) { return (g.platforms && g.platforms.length) ? g.platforms : ["Other"]; }
+    var shown = list.filter(function (g) { return filter === "All" || plats(g).indexOf(filter) >= 0; });
+    if (!shown.length) return null;
+    function rank(g) { return platforms.indexOf(plats(g)[0]); }
+    shown = shown.map(function (g, i) { return { g: g, i: i }; })
+      .sort(function (a, b) { return (rank(a.g) - rank(b.g)) || (a.i - b.i); })
+      .map(function (x) { return x.g; });
+    var grid = el("div", { class: "grid" });
+    shown.forEach(function (g) { grid.appendChild(renderCard(g)); });
+    return el("section", { class: "games-section" }, [el("h2", { text: heading }), grid]);
   }
 
   fetch("games.json")
