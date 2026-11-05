@@ -22,6 +22,8 @@
 
 - **Emulator setup (2026-11-04):** EmulatorJS v4.2.3 self-hosted in `play/emulatorjs/data/` with only the cores we need (not the 300 MB full package); single-threaded builds, so no COOP/COEP headers are needed. One shared `play/player.html?id=<id>`; a game opts in with a `demo` object in `games.json`. Demo ROMs live in `play/<id>/`. See `play/emulatorjs/README.md` for licensing caveats.
 
+- **Browser play is optional (2026-11-04):** the downloadable demo is the baseline for every game (customers play it on an emulator, real console or flash cart). In-browser play is a bonus only where the emulator works (GB/GBC/GBA, maybe Game Gear); if a game can't be run in the browser it simply has no Play button. Playdate titles are download-only unless an easy browser option turns up.
+
 ## Open
 - Payment/delivery platform: itch.io (easiest) vs Stripe Payment Link / Gumroad / Lemon Squeezy.
 - GitHub repo name/remote (proposed `NeoRetroGames_Site`) and whether `gh` gets installed.
