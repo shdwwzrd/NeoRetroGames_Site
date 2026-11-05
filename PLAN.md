@@ -20,7 +20,7 @@ Self-hosted GitHub Pages site at https://neoretro.games with (1) a list of all N
 - [x] Initial cards added (all "In Development", no covers/blurbs yet): Rayne the Rogue 2 (GBA, GBC, GB, Game Gear), Omega Horizon (GBA), Leanna the Lion (GB)
 - [x] Playdate cards added (In Development, no covers/blurbs): CR8ZY, Spades, Omega Horizon, Rayne the Rogue 2. CR8ZY and Spades are Card
 - [x] Old itch.io games removed from `games.json`; they'll be re-added later as new ports (with platforms)
-- [ ] Cover images for each card: owner is collecting them (drop in `img/`, then set `cover` in `games.json`). Done: Tiles, Rayne 2 (GBA, GBC, GB, GB Arcade Version), Leanna (GB). Missing: Rayne 2 Game Gear + Playdate, Omega Horizon (GBA, Playdate), CR8ZY, Spades
+- [ ] Cover images: drop in `img/covers/<game-id>.png`, run `tools\apply-copy.bat`. Done: Tiles, Rayne 2 (GBA, GBC, GB, GB Arcade Version), Leanna (GB), Omega Horizon (GBA). Missing: Rayne 2 Game Gear + Playdate, Omega Horizon Playdate, CR8ZY, Spades
 - [ ] Cover files are ~2.5-3 MB each (~14 MB total); consider optimizing/shrinking before the repo grows
 - [ ] Blurbs for each card; Discord URL
 - [x] Pushed; site live on the github.io URL (404 gone)

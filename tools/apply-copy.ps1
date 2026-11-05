@@ -82,6 +82,18 @@ for ($i = 0; $i -lt $lines.Count; $i++) {
   else { $c = @{ blurb = ''; description = @() } }
   $l = $lines[$i]; $changed = $false
 
+  # cover: img\covers\<id>.png (or .jpg/.jpeg/.webp/.gif) becomes the card/page cover
+  $coverFile = $null
+  foreach ($ext in 'png', 'jpg', 'jpeg', 'webp', 'gif') {
+    $cf = Join-Path $Root ('img\covers\' + $gid + '.' + $ext)
+    if (Test-Path $cf) { $coverFile = $gid + '.' + $ext; break }
+  }
+  if ($coverFile) {
+    $cov = '"cover": ' + (Json-Str ('img/covers/' + $coverFile))
+    $l = [regex]::Replace($l, '"cover":\s*"(?:[^"\\]|\\.)*"', { param($m) $cov })
+    $changed = $true
+  }
+
   # screenshots: every image in img\shots\<id>\, in natural order (1, 2, ... 10)
   $shotDir = Join-Path $Root ('img\shots\' + $gid)
   if (Test-Path $shotDir) {

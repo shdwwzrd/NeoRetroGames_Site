@@ -24,6 +24,8 @@
 
 - **Browser play is optional (2026-11-04):** the downloadable demo is the baseline for every game (customers play it on an emulator, real console or flash cart). In-browser play is a bonus only where the emulator works (GB/GBC/GBA, maybe Game Gear); if a game can't be run in the browser it simply has no Play button. Playdate titles are download-only unless an easy browser option turns up.
 
+- **Ids always end in the platform (2026-11-05):** every game id is `<game>-<platform>` with platform suffixes `gb`, `gbc`, `gba`, `gg`, `playdate`, so a later port to another console never collides. Covers (`img/covers/<id>.png`), screenshots (`img/shots/<id>/`), demo folders (`play/<id>/`) and `COPY.md` sections all follow the id. Card titles stay plain (platform shows as a tag). Renamed `tiles` to `tiles-gbc`, `omega-horizon` to `omega-horizon-gba`, `leanna-the-lion` to `leanna-the-lion-gb`.
+
 ## Open
 - Payment/delivery platform: itch.io (easiest) vs Stripe Payment Link / Gumroad / Lemon Squeezy.
 - GitHub repo name/remote (proposed `NeoRetroGames_Site`) and whether `gh` gets installed.

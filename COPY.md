@@ -19,7 +19,7 @@ Rules (so the script can read this file):
 
 ---
 
-## tiles
+## tiles-gbc
 <!-- Tiles (GBC) -->
 ### blurb
 
@@ -68,7 +68,7 @@ Rules (so the script can read this file):
 ### description
 
 
-## omega-horizon
+## omega-horizon-gba
 <!-- Omega Horizon (GBA) -->
 ### blurb
 
@@ -96,7 +96,7 @@ Rules (so the script can read this file):
 ### description
 
 
-## leanna-the-lion
+## leanna-the-lion-gb
 <!-- Leanna the Lion (GB) -->
 ### blurb
 Leanna may be a lion, but she knows what she wants: fresh meat from her favorite restaurant. The zoo had to close!
