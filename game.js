@@ -14,7 +14,8 @@
   }
 
   function isSafeUrl(u) {
-    return /^(https?:\/\/|[A-Za-z0-9_.\/-]+$)/.test(u);
+    // http(s) links, or relative paths with an optional simple ?a=b query (e.g. play/player.html?id=x)
+    return /^(https?:\/\/\S+|[A-Za-z0-9_.-][A-Za-z0-9_.\/-]*(\?[A-Za-z0-9_=&.-]*)?)$/.test(u);
   }
 
   function button(label, url, cls, download) {

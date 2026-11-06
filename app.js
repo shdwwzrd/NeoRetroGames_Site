@@ -14,7 +14,7 @@
   }
 
   function isSafeUrl(u) {
-    return /^(https?:\/\/|[A-Za-z0-9_.\/-]+$)/.test(u);
+    return /^(https?:\/\/\S+|[A-Za-z0-9_.-][A-Za-z0-9_.\/-]*(\?[A-Za-z0-9_=&.-]*)?)$/.test(u);
   }
 
   function renderCard(g) {

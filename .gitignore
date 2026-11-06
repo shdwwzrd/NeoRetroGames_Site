@@ -1,0 +1,4 @@
+# Player save files from desktop emulators; never publish
+*.sav
+*.srm
+*.state

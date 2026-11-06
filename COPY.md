@@ -43,8 +43,37 @@ Rules (so the script can read this file):
 ## rayne-the-rogue-2-gb
 <!-- Rayne the Rogue 2 (GB) -->
 ### blurb
-
+A maze-chase action roguelike for the original Game Boy. Die, spend your coins in the shop, and try again until you reach the magic lamp.
 ### description
+After barely escaping the dragon's lairs, Rayne travelled the world in search of the next big adventure. Then came a rumour of a magic lamp hidden deep in a castle, guarded by vicious creatures that hunt down any interloper. Help Rayne find a way through the castle and avoid the beasts to reach the lamp.
+
+Rayne the Rogue 2 is a fast, Pac-Man-style maze chase wrapped in a roguelike. You start each run with very little. Collect the treasure on every level, dodge the four castle wolves, and push as deep as you can. When you fall, you go back to the shop and spend the coins you collected on new skills, so your next run goes further. The goal is level 20, where the magic lamp is waiting.
+
+## Features
+- **Four castle wolves**, each with its own way of hunting you: one chases, one ambushes, one flanks, one keeps its distance. They scatter, chase and flee in waves, and get faster as the levels climb.
+- **Potions**: fire (scares and burns the wolves), invisibility, speed and illusion (a decoy that pulls the wolves away).
+- **Rings** you find and equip, with a few charges each: invisibility, illusion, speed and fire.
+- **Traps** from level 5 on: cold traps slow you, freeze traps stop you in place, bomb traps hurt. Sense and disarm them with the right skill.
+- **The shop**: spend coins on Magic Shield, Luck, Resistance and Sense and Disarm.
+- **Treasure** on every level, with pearls, rubies and amethysts when your luck is high.
+- **Relics**: the harp, the candelabra, the diamond, the dragon egg and the four magic rings. Each one can only be found once, so hunt them all down.
+- **Three save files** kept in the cartridge's battery-backed RAM. Your coins, upgrades and relics carry over between runs.
+
+## Now on Game Boy
+
+This is the full story mode on the original Game Boy (DMG): the same castle, shop and 20 levels, drawn in the four shades of the Game Boy screen. It is a 128 KB ROM with battery-backed saves.
+
+- **Original Game Boy**: play it on a flash cart (EverDrive, EMS, GB Flash...). It was tested on a real DMG from the first level to the lamp.
+- **Emulators**: mGBA, SameBoy, BGB, Emulicious and other Game Boy emulators.
+- It should also run on Game Boy Pocket, Color and Advance (not tested yet).
+- Story mode only: there is no separate arcade mode in this version.
+
+## Controls
+- **D-pad**: move (Rayne keeps going in the last direction)
+- **A**: left ring / confirm
+- **B**: right ring / back
+- **START**: pause
+- **SELECT**: delete a save file on the file list
 
 
 ## rayne-the-rogue-2-arcade-gb

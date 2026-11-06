@@ -35,6 +35,9 @@
 }
 ```
 
+## Local preview
+- Run `tools\serve.bat`, then open http://localhost:8000/ (opens automatically). Needs a web server because `fetch("games.json")` is blocked on `file://`. Alternative: VS Code "Live Server" extension, right-click `index.html` > Open with Live Server. Hard refresh (Ctrl+Shift+R) after edits.
+
 ## Copy workflow
 - Write each game's `blurb` (card + top of page) and `description` (game page, paragraphs separated by a blank line) in `COPY.md`, then run `tools\apply-copy.bat`. It writes them into `games.json` (keeps the one-line-per-game layout, validates JSON before saving) and adds a stub section to COPY.md for any game in `games.json` that has none. Empty sections are skipped, so existing text is never blanked.
 - Description formatting: blank line = new paragraph, `## Heading`, `- ` bullet lists, `**bold**`. Stored in `games.json` as an array of blocks (paragraph string, `"## Heading"`, or `"- a\n- b"` list); `game.js` renders them with DOM nodes (no innerHTML).
