@@ -27,6 +27,6 @@
 - **Ids always end in the platform (2026-11-05):** every game id is `<game>-<platform>` with platform suffixes `gb`, `gbc`, `gba`, `gg`, `playdate`, so a later port to another console never collides. Covers (`img/covers/<id>.png`), screenshots (`img/shots/<id>/`), demo folders (`play/<id>/`) and `COPY.md` sections all follow the id. Card titles stay plain (platform shows as a tag). Renamed `tiles` to `tiles-gbc`, `omega-horizon` to `omega-horizon-gba`, `leanna-the-lion` to `leanna-the-lion-gb`.
 
 ## Open
-- Payment/delivery platform: itch.io (easiest) vs Stripe Payment Link / Gumroad / Lemon Squeezy.
+- Payment/delivery platform: **leaning Gumroad (2026-11-05), pending owner's review of their site.** Moving away from itch.io on purpose: the owner wants to control the storefront (other stores' policies are a concern), so this site is the store and the processor is only checkout + file delivery by email. Fallback: Lemon Squeezy (or Payhip). Stripe Payment Links alone don't deliver files. Prices will be $2-$10. Demos are distributed only from this GitHub Pages site (play + download); only paid games go through the processor, so the processor never hosts demos. Owner is checking fees, merchant-of-record/tax status and delivery requirements. Needs: merchant of record (handles VAT/sales tax), file delivery, one product per platform port, fees that suit low prices.
 - GitHub repo name/remote (proposed `NeoRetroGames_Site`) and whether `gh` gets installed.
 - Which game is first on the site (assumed 2026_Tiles) and its demo ROM.

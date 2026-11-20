@@ -40,7 +40,8 @@ Self-hosted GitHub Pages site at https://neoretro.games with (1) a list of all N
 - [ ] Set custom domain in Pages settings, wait for DNS, tick Enforce HTTPS
 
 ## Phase 4: Selling
-- [ ] Pick payment/delivery platform (see DECISIONS.md, open)
+- [ ] Pick payment/delivery platform: leaning Gumroad, owner checking fees (games are $2-$10), tax/merchant of record, delivery requirements (see DECISIONS.md). Itch.io is being phased out. Demos stay on this site only
+- [ ] Create one product per port (id-matched, e.g. `rayne-the-rogue-2-gb`), then set each game's `buyUrl` and `price` in `games.json`
 - [ ] Add buy links per game; keep full ROMs off this repo
 
 ## Phase 5: More games

@@ -79,8 +79,31 @@ This is the full story mode on the original Game Boy (DMG): the same castle, sho
 ## rayne-the-rogue-2-arcade-gb
 <!-- Rayne the Rogue 2: Arcade Version (GB) -->
 ### blurb
-
+The fast, no-frills arcade run of Rayne the Rogue 2 on the original Game Boy. Grab the treasure, dodge the castle wolves and race to the magic lamp.
 ### description
+Rayne the Rogue 2: Arcade Version is a quick Pac-Man-style maze chase for the original Game Boy. There is no shop and no saved character: every run starts fresh, so it is pure skill. Collect the treasure on every level, dodge the four castle wolves and push as deep into the castle as you can. The goal is level 20, where the magic lamp is waiting.
+
+## Features
+- **Four castle wolves**, each hunting you in its own way. They scatter, chase and flee in waves, and get faster as the levels climb.
+- **Potions** you can grab along the way: fire (scares the wolves) and invisibility, plus an illusion decoy that pulls the wolves away.
+- **Rings on two buttons**: A uses the fire ring and B uses the invisibility ring.
+- **Two castle mazes** and **20 levels**, ending at the magic lamp.
+- **A rank on the win screen**, based on how much life you have left when you reach the lamp.
+- **Sound on or off** from the pause menu, remembered by the cartridge.
+
+## Now on Game Boy
+
+This is the arcade version drawn for the original Game Boy (DMG), in the four shades of its screen. It is a 64 KB ROM with battery-backed memory for the sound setting. Want the full roguelike with the shop, upgrades, rings and relics, and saved characters? Look for the story mode version.
+
+- **Original Game Boy**: play it on a flash cart (EverDrive, EMS, GB Flash...). It was tested on a real DMG from the first level to the lamp.
+- **Emulators**: mGBA, SameBoy, BGB, Emulicious and other Game Boy emulators.
+- It should also run on Game Boy Pocket, Color and Advance (not tested yet).
+
+## Controls
+- **D-pad**: move (Rayne keeps going in the last direction)
+- **A**: fire ring / confirm
+- **B**: invisibility ring
+- **START**: pause (in the pause menu, UP is sound on, DOWN is sound off, hold B for 3 seconds to go back to the title)
 
 
 ## rayne-the-rogue-2-gg
